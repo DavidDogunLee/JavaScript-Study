@@ -1,0 +1,15 @@
+.start {
+  text-align: center;
+  margin-top: 100px;
+  font-family: sans-serif;
+  font-size: 50px;
+  color: black;
+}
+
+.wrong {
+  text-align: center;
+  margin-top: 100px;
+  font-family: sans-serif;
+  font-size: 50px;
+  color: red;
+}
