@@ -18,3 +18,30 @@ var myDog = {
 }
 
 myDog.sex = 'Boy';
+
+myDog.mother = {
+  name: 'YJ',
+  isNice: true
+}
+
+var myList = ['chicken', 'broccoli', 'brown rice']
+
+var myFalsies = [false, null, NaN, 0, undefined, '']
+
+var trios = [['Billy', 'Tre', 'Mike'], ['Geddy', 'Alex', 'Neil']]
+
+var team = [
+  {
+    name: 'David',
+    role: 'God\' worker'
+  },
+  {
+    name: 'YJ',
+    role: 'David\' wife'
+  }
+]
+
+var company = {
+  name: 'Paris Baguette',
+  established: 2017,
+}
