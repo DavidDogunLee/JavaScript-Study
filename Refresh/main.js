@@ -196,3 +196,128 @@ function getTotal(items) {
   }
   return total
 }
+
+var price = [
+  {
+    name: 'David',
+    price: 12
+  },
+  {
+    name: 'Yoojin',
+    price: 12
+  }
+]
+
+function format(item) {
+  var output = ''
+  for (var key in item) {
+    var line = key + ': ' + item[key] + '\n'
+    output += line
+  }
+  return output
+}
+
+var firstName = 'David'
+var totalPets = 11
+
+var fullName = firstName + ' ' + 'Lee'
+var tooManyPets = totalPets > 10
+
+function getArea(width, height) {
+  return width * height
+}
+
+function doctorUp(fullName) {
+  return 'Dr.' + ' ' + fullName + ' ' + 'PhD'
+}
+
+var orders = [
+  {
+    item: '#1',
+    data: '1st',
+    price: '$1'
+  },
+  {
+    item: '#2',
+    data: '2nd',
+    price: '$2'
+  },
+  {
+    item: '#3',
+    data: '3rd',
+    price: '$3'
+  }
+]
+
+var personOne = {
+  name: 'David',
+  age: 1
+}
+
+var personTwo = {
+  name: 'Yoojin',
+  age: 2
+}
+
+function updateSenior(person) {
+  var isSenior = true
+  if (person.age > 1) {
+    return isSenior
+  }
+  else {
+    return isSenior = false
+  }
+}
+
+var programmers = [
+  {
+    name: 'David',
+    exp:  5
+  },
+  {
+    name: 'YJ',
+    exp:  1
+  }
+]
+
+function getTotalExperience(workers) {
+  var exp = 0
+  for (i=0; i < workers.length; i++) {
+    var total = workers[i]
+    exp += total.exp
+  }
+  return exp
+}
+
+var library = [
+  {
+    title: 'JavaScript the Good Parts',
+    subject: 'JavaScript'
+  },
+  {
+    title: 'Refactoring',
+    subject: 'Practices'
+  },
+  {
+    title: 'Clean Code',
+    subject: 'Practices'
+  },
+  {
+    title: 'Secrets of the JavaScript Nina',
+    subject: 'JavaScrip'
+  },
+  {
+    title: 'Professional JavaScript for Web Developers',
+    subject: 'JavaScript'
+  }
+]
+
+function getJsBooks(books) {
+  var books = []
+  library.forEach(function (book) {
+    if (book.subject === 'JavaScript') {
+      books.push(book)
+    }
+  })
+  return books
+}
