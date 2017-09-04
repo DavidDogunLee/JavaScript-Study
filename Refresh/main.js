@@ -321,3 +321,9 @@ function getJsBooks(books) {
   })
   return books
 }
+
+var first = document.querySelector('.entrance')
+first.textContent = 'Hello World'
+
+var second = document.querySelector('#door')
+second.textContent = 'Hello Orange County'
