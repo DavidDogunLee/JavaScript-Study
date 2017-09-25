@@ -389,3 +389,37 @@ var numbers = [1, 5, 10, 15];
 var doubles = numbers.map(function(x) {
   return x * 2;
 })
+
+var roots = numbers.map(Math.sqrt)
+
+var kvArray = [
+  {key:1, value: 10},
+  {key:2, value: 20},
+  {key:3, value: 30}
+]
+
+var reformattedArray = kvArray.map(function(obj) {
+  var rObj = {};
+  rObj[obj.key] = obj.value;
+  return rObj;
+});
+
+var words = ['spray', 'limit', 'elite', 'exuberant']
+
+var longWords = words.filter(word => word.length > 4)
+
+var users = [
+  { id: 1, followers: [2] },
+  { id: 2, followers: [1, 5] },
+  { id: 3, followers: [1, 2, 4] },
+  { id: 4, followers: [1, 2] },
+  { id: 5, followers: [1, 2, 3, 4] }
+];
+
+var popular = users.filter(function(user){
+  return user.followers.length > 2
+})
+
+var total = [0, 1, 2, 3].reduce(function(sum, value) {
+  return sum + value;
+}, 0)
