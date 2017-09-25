@@ -74,10 +74,6 @@ function isEquilateral(side1, side2, side3) {
   return allEqual
 }
 
-function returnsNothing() {
-
-}
-
 var babe = {
   type: 'pig',
   name: 'Babe'
@@ -325,8 +321,6 @@ function JsBooks(books) {
 var first = document.querySelector('.entrance')
 first.textContent = 'Hello World'
 
-var second = document.querySelector('#doom')
-
 var articles = [
   {
     title: 'The Law of Leaky Abstractions',
@@ -358,10 +352,40 @@ function renderPost(post) {
   $post.appendChild($title)
   $post.appendChild($author)
   $post.appendChild($content)
+
   return $post
 }
 
-articles.forEach(function (article) {
-  var $post = renderPost(article)
+articles.forEach(function(post) {
+  var $post = renderPost(post)
   document.body.appendChild($post)
+})
+
+var cartItems = [
+  {
+    id: 'p001',
+    name: 'Schwinn Mark V Bike',
+    qty: 1
+  },
+  {
+    id: 'p002',
+    name: 'Scan disk 32GB',
+    qty: 18
+  },
+  {
+    id: 'p003',
+    name: 'Honda',
+    qty: 4
+  }
+]
+
+var itemslist = cartItems.map(function(item) {
+  var items = document.createElement('div')
+  items.textContent = item.name
+  return items
+})
+
+var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+  return x * 2;
 })
