@@ -406,7 +406,7 @@ var reformattedArray = kvArray.map(function(obj) {
 
 var words = ['spray', 'limit', 'elite', 'exuberant']
 
-var longWords = words.filter(word => word.length > 4)
+var longWords = words.filter(word => word.length > 5)
 
 var users = [
   { id: 1, followers: [2] },
@@ -423,3 +423,29 @@ var popular = users.filter(function(user){
 var total = [0, 1, 2, 3].reduce(function(sum, value) {
   return sum + value;
 }, 0)
+
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b){
+  return a.concat(b);
+}, [])
+
+var tweets = [
+  { user: 'larry', message: 'I lost my ba-lance' },
+  { user: 'moe', message: '@larry Oh, ya lost your ba-lance, eh?' },
+  { user: 'larry', message: '@moe Yeah' },
+  { user: 'moe', message: '@larry Well go find it!' },
+  { user: 'zoidberg', message: 'Whooop whoop Whoop Whoop' },
+  { user: 'curly', message: '@zoidberg that\'s MY line!' }
+];
+
+tweets
+  .filter(function notZoidberg(tweet) {
+    return tweet.user !== 'zoidberg'
+  })
+  .map(function tweetElement(tweet) {
+    var theTweet = document.createElement('div')
+    theTweet.textContent = tweet.user + ' ' + tweet.message
+    return theTweet
+  })
+  .forEach(function appendTweet(theTweet) {
+    document.body.appendChild(theTweet)
+  });
