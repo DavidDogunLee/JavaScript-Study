@@ -449,3 +449,99 @@ tweets
   .forEach(function appendTweet(theTweet) {
     document.body.appendChild(theTweet)
   });
+
+var rush = ['Geddy', 'Neil', 'Alex']
+var greenDay = ['Billy', 'Tré', 'Mike']
+var motorhead = ['Lemmy', 'Mikkey', 'Phil']
+
+var concatAll = rush.concat(greenDay.concat(motorhead))
+
+var obj = { a: 1};
+var copy = Object.assign({}, obj);
+console.log(copy);
+
+function typeWriter() {
+  var text = ''
+  function type(message) {
+    text += message
+    return text
+  }
+  return type
+}
+var type = typeWriter()
+
+function makeCounter(number) {
+  return {
+    increment: function () {
+      number += 1
+      return number
+    },
+    decrement: function () {
+      number -= 1
+      return number
+    },
+    current: function () {
+      return number
+    }
+  }
+}
+
+var counter = makeCounter(0)
+
+function useTheForce(level){
+
+  function forcePush(){
+    console.log('FORCE PUSH - LEVEL ' + level)
+    level += 1
+  }
+
+  return forcePush
+}
+
+var forcePush = useTheForce(1)
+
+// function declaration = function statement in JavaScript are hoisting the function definition.
+// You can use the function before you declared it.
+hoisted();
+
+function hoisted(){
+  console.log('foo');
+};
+// function expressions are not hoisted:
+// notHoisted();
+//
+// var notHoisted = function (){
+//   console.log('bar');
+// };
+
+// function expression can be used to invoke the function right after its declared
+var calc_sales = function (units_a, units_b, units_c){
+  return units_a*79 + units_b*129 + units_c*699;
+}
+
+var foo = function() {}
+
+var foo2 = foo
+
+var bar = function baz() {}
+
+// Factory pattern
+var peopleFactory = function(name, age, state){
+
+  var temp = {};
+
+  temp.age = age;
+  temp.name = name;
+  temp.state = state;
+
+  temp.printPerson = function(){
+    console.log(this.name + ', ' + this.age + ", " + this.state)
+  }
+  return temp;
+}
+
+var person1 = peopleFactory('David', 23, 'CA')
+var person2 = peopleFactory('YJ', 21, 'CA')
+
+person1.printPerson()
+person2.printPerson()
