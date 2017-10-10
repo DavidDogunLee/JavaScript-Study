@@ -562,14 +562,14 @@ pear.price()
 
 function advancedCar(speed, heading){
   return {
-    turn: function(direction){
-      heading = direction
-    },
     faster: function(increase){
       speed = speed + increase
     },
     slower: function(decrease){
       speed = speed - decrease
+    },
+    heading: function(direction){
+      heading = direction
     },
     getSpeed: function(){
       return speed
@@ -580,4 +580,22 @@ function advancedCar(speed, heading){
   }
 }
 
-var car1 = advancedCar(2, 'North')
+var car1 = advancedCar(1, 'North')
+
+function pizzaFactory(cheese, sauce, size){
+  var pizza = {}
+
+  pizza.cheese = cheese;
+  pizza.sauce = sauce;
+  pizza.size = size;
+
+  pizza.order = function(){
+    console.log(cheese + ' ' + sauce + ' ' + size + ' ' + '!')
+  }
+  return pizza
+}
+
+var pizza1 = pizzaFactory('pepperroni', 'marino', 'small')
+var pizza2 = pizzaFactory('poni', 'italno', 'large')
+pizza1.order()
+pizza2.order()
