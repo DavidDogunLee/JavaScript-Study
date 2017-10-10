@@ -545,3 +545,39 @@ var person2 = peopleFactory('YJ', 21, 'CA')
 
 person1.printPerson()
 person2.printPerson()
+
+function fruit(weight, pricePerPound){
+  return {
+    price: function(){
+      return console.log(weight * pricePerPound)
+    }
+  }
+}
+
+var banana = fruit(1, 3)
+var pear = fruit(2, 4)
+
+banana.price()
+pear.price()
+
+function advancedCar(speed, heading){
+  return {
+    turn: function(direction){
+      heading = direction
+    },
+    faster: function(increase){
+      speed = speed + increase
+    },
+    slower: function(decrease){
+      speed = speed - decrease
+    },
+    getSpeed: function(){
+      return speed
+    },
+    getHeading: function(){
+      return heading
+    }
+  }
+}
+
+var car1 = advancedCar(2, 'North')
