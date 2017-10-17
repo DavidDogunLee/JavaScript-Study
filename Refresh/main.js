@@ -669,3 +669,19 @@ setInterval(function(){
 function Animal(sound){
   this.sound = sound
 }
+
+var dog = new Animal('bark')
+var cat = new Animal('meow')
+
+console.log(dog.sound)
+console.log(cat.sound)
+
+Animal.prototype.speak = function(){
+  console.log(this.sound)
+}
+
+var horse = new Animal('neigh')
+var fish = new Animal('bloop')
+
+horse.speak()
+fish.speak()
