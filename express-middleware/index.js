@@ -1,20 +1,23 @@
 var express = require('express')
 
-var app = express()
-
-var requestTime = function (req, res, next) {
-  req.requestTime = Date.now()
+// Middleware to print the unix timestamp of the request.
+var logTimestamp = (req, res, next) => {
+  console.log('Request received: ', Date.now())
   next()
 }
 
-app.use(requestTime)
+// Middleware to send a 200 OK response to the client.
+var respond = (req, res) => {
+  res.sendStatus(200)
+}
 
-app.get('/', (req, res) => {
-  var responseText = 'Hello World!<br>'
-  responseText += '<small>Requested at: ' + req.requestTime + '</small>'
-  res.send(responseText)
-})
+var app = express()
+
+// Registering our Middleware
+// in the order they should process requests.
+app.use(logTimestamp)
+app.use(respond)
 
 app.listen(3000, () => {
-  console.log('listening to port 4000!')
+  console.log('Listening on port 3000!')
 })
