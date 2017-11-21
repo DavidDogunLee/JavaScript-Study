@@ -1,44 +1,34 @@
-/*
-1. Every JavaScript object has a prototype property, which makes inheritance possible in JavaScript.
-2. The prototype property of an object is where we put methods and properties
-   that we want other objects to inherit;
-3. The Constructor's prototype property is NOT the prototype of the Constructor itself,
-   it's the prtotype of ALL instances that are created throught it;
-4. When a certain method(or property)is called, the search starts in the object
-itself, and if it cannot be found, the search moves on to the object's prototype.
-This continues until the method is found: prototype chain
-*/
+var years = [1990, 1965, 1937, 2005, 1998];
 
-// Function constructor
-
-var john = {
-  name: 'John',
-  yearOfBirth: 1990,
-  job: 'teacher'
-};
-
-var Person = function(name, yearOfBirth, job) {
-  this.name = name;
-  this.yearOfBirth = yearOfBirth;
-  this.job = job;
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
+  }
+  return arrRes;
 }
 
-Person.prototype.calculateAge = function() {
-  console.log(2016 - this.yearOfBirth);
+function calculateAge(el) {
+  return 2016 - el;
 }
 
-Person.prototype.lastName = 'Smith';
+function isFullAge(el) {
+  return el >= 18;
+}
 
-var john = new Person('John', 1990, 'teacher');
+function maxHeartRate(el) {
 
-john.calculateAge();
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (0.67 * el));
+  } else {
+    return -1;
+  }
+}
 
-var jane = new Person('Jane', 1969, 'designer');
-var mark = new Person('Mark', 1948, 'retired');
+var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFullAge);
+var rate = arrayCalc(ages, maxHeartRate);
 
-jane.calculateAge();
-mark.calculateAge();
-
-console.log(john.lastName);
-console.log(jane.lastName);
-console.log(mark.lastName);
+console.log(ages);
+console.log(fullAges);
+console.log(rate);
