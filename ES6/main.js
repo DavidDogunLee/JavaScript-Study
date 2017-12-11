@@ -58,13 +58,120 @@
 
 
 // ES6
-function LeePerson(firstName, yearOfBirth, lastName = 'Lee', nationality = 'Korean') {
+// function LeePerson(firstName, yearOfBirth, lastName = 'Lee', nationality = 'Korean') {
+//
+//   this.firstName = firstName;
+//   this.yearOfBirth = yearOfBirth;
+//   this.lastName = lastName;
+//   this.nationality = nationality;
+//
+// };
+//
+// var david = new LeePerson('David', 1990);
 
-  this.firstName = firstName;
-  this.yearOfBirth = yearOfBirth;
-  this.lastName = lastName;
-  this.nationality = nationality;
 
-};
 
-var david = new LeePerson('David', 1990);
+// Classes
+// ES5 - Constructor function
+// var Person5 = function(name, yearOfBirth, job) {
+//   this.name = name;
+//   this.yearOfBirth = yearOfBirth;
+//   this.job = job;
+// }
+//
+// Person5.prototype.calculateAge = function() {
+//     var age = new Date().getFullYear() - this.yearOfBirth;
+//     console.log(age);
+// }
+//
+// var david5 = new Person5('David', 1990, 'programmer');
+//
+// // ES6
+// class Person6 {
+//
+//   constructor (name, yearOfBirth, job) {
+//     this.name = name;
+//     this.yearOfBirth = yearOfBirth;
+//     this.job = job;
+//   }
+//
+//   calculateAge() {
+//     var age = new Date().getFullYear() - this.yearOfBirth;
+//     console.log(age);
+//   }
+//
+// }
+//
+// const david6 = new Person6('David Lee', 1990, 'programmer');
+
+// class defination are not hoisted unlike function defination so we need to 1st declear before we can start using it.
+// Also, we can only add method to the class but not property
+// inheriting property from object instance is not a best practice anyway.
+
+// Sub-class
+// ES5
+// var Person5 = function(name, yearOfBirth, job) {
+//   this.name = name;
+//   this.yearOfBirth = yearOfBirth;
+//   this.job = job;
+// }
+//
+// Person5.prototype.calculateAge = function() {
+//   var age = new Date().getFullYear() - this.yearOfBirth;
+//   console.log(age);
+// }
+//
+// var Athlete5 = function(name, yearOfBirth, job, olymicGames, medals) {
+//   Person5.call(this, name, yearOfBirth, job);
+//   this.olymicGames = olymicGames;
+//   this.medals = medals;
+// }
+//
+// Athlete5.prototype = Object.create(Person5.prototype);
+//
+// Athlete5.prototype.wonMedal = function() {
+//   this.medals++;
+//   console.log(this.medals);
+// }
+// var davidAthlete5 = new Athlete5('David', 1990, 'swimmer', 3, 10);
+//
+// davidAthlete5.calculateAge();
+// davidAthlete5.wonMedal();
+// davidAthlete5.wonMedal();
+
+
+// ES6 - Sub-class
+class Person6 {
+
+  constructor (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+  }
+
+  calculateAge() {
+    var age = new Date().getFullYear() - this.yearOfBirth;
+    console.log(age);
+  }
+
+}
+
+class Athlete6 extends Person6 {
+
+  constructor(name, yearOfBirth, job, olymicGames, medals) {
+    super(name, yearOfBirth, job);
+    this.olymicGames = olymicGames;
+    this.medals = medals;
+  }
+
+  wonMedal() {
+    this.medals++;
+    console.log(this.medals);
+  }
+
+}
+
+const davidAthlete6 = new Athlete6('David', 1990, 'runner', 3, 10);
+
+davidAthlete6.calculateAge();
+davidAthlete6.wonMedal();
